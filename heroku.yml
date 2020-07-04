@@ -1,0 +1,16 @@
+setup:
+    addons:
+      - plan: mLab-MongoDB
+        as: MONGODB
+
+    config:
+        N8N_BASIC_AUTH_ACTIVE: true
+        N8N_BASIC_AUTH_USER: manssor
+        N8N_BASIC_AUTH_PASSWORD: Aa123456
+        DB_TYPE : mongodb
+        DB_MONGODB_CONNECTION_URL : ${MONGODB_URI}?authMode=scram-sha1&retryWrites=false
+        
+
+build:
+    docker:
+        web: Dockerfile
